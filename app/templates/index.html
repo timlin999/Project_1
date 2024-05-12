@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+  Главная страница
+{% endblock title %}
+{% block content %}
+  <h1>Главная</h1>
+  <hr>
+  {% for languages in languages %}
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ languages.title }}</h5>
+      <p class="card-text">{{ languages.text|truncate(100) }}</p>
+      <a href="{{ url_for('language_detail', id=languages.id) }}" class="btn btn-primary">Читать далее</a>
+    </div>
+    <div class="card-footer">
+      {% if languages.created_date %}
+        <span class="card-link">Дата создания: {{ languages.created_date.strftime('%d.%m.%Y') }}</span>
+      {% endif %}
+    </div>
+  </div>
+  {% else %}
+  <p class="card-text">Языков программирования пока нет!</p>
+  {% endfor %}
+{% endblock content %}

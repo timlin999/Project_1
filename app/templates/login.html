@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}
+  Вход
+{% endblock title %}
+{% block content %}
+  <h1>Вход</h1>
+  <hr>
+  <form method="POST" action="" novalidate>
+    {{ form.csrf_token }}
+      <div class="form-group">
+        <label >
+          {{ form.username.label }}
+        </label>
+        {{ form.username(class="form-control") }}
+      </div>
+      {% for error in form.username.errors %}
+        <div class="alert alert-danger" role="alert">
+          <span>{{ error }}</span>
+        </div>
+      {% endfor %}
+      <div class="form-group">
+        <label >
+          {{ form.password.label }}
+        </label>
+        {{ form.password(class="form-control", rows="5") }}
+      </div>
+      {% for error in form.password.errors %}
+        <div class="alert alert-danger" role="alert">
+          <span>{{ error }}</span>
+        </div>
+      {% endfor %}
+      <div class="form-group">
+        <label >
+          {{ form.remember.label }}
+          {{ form.remember }}
+        </label>
+      </div>
+    {{ form.submit(class="btn btn-primary btn-lg") }}
+  </form>
+{% endblock content %}

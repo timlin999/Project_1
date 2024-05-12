@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ languages.title }}
+{% endblock title %}
+{% block content %}
+  <h1>{{ languages.title }}</h1>
+  {% if languages.created_date %}
+    <span>Дата создания: </span><span class="badge badge-primary">{{ languages.created_date.strftime('%d.%m.%Y') }}</span>
+  {% endif %}
+  <hr>
+  <p>{{ languages.text }}</p>
+{% endblock content %}

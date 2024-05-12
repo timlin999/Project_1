@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}
+  Регистрация
+{% endblock title %}
+{% block content %}
+  <h1>Регистрация</h1>
+  <hr>
+  <form method="POST" action="" novalidate>
+    {{ form.csrf_token }}
+      <div class="form-group">
+        <label >
+          {{ form.username.label }}
+        </label>
+        {{ form.username(class="form-control") }}
+      </div>
+      {% for error in form.username.errors %}
+        <div class="alert alert-danger" role="alert">
+          <span>{{ error }}</span>
+        </div>
+      {% endfor %}
+      <div class="form-group">
+        <label >
+          {{ form.name.label }}
+        </label>
+        {{ form.name(class="form-control") }}
+      </div>
+      {% for error in form.username.errors %}
+        <div class="alert alert-danger" role="alert">
+          <span>{{ error }}</span>
+        </div>
+      {% endfor %}
+      <div class="form-group">
+        <label>
+          {{ form.email.label }}
+        </label>
+        {{ form.email(class="form-control") }}
+      </div>
+      {% for error in form.email.errors %}
+        <div class="alert alert-danger" role="alert">
+          <span>{{ error }}</span>
+        </div>
+      {% endfor %}
+      <div class="form-group">
+        <label >
+          {{ form.password.label }}
+        </label>
+        {{ form.password(class="form-control") }}
+      </div>
+      {% for error in form.password.errors %}
+        <div class="alert alert-danger" role="alert">
+          <span>{{ error }}</span>
+        </div>
+      {% endfor %}
+      <div class="form-group">
+        <label >
+          {{ form.password2.label }}
+        </label>
+        {{ form.password2(class="form-control") }}
+      </div>
+      {% for error in form.password2.errors %}
+        <div class="alert alert-danger" role="alert">
+          <span>{{ error }}</span>
+        </div>
+      {% endfor %}
+    {{ form.submit(class="btn btn-primary btn-lg") }}
+  </form>
+{% endblock content %}
